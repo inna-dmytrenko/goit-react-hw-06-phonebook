@@ -3,7 +3,6 @@ import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
 import './PhoneBookForm.css';
 import { addItem } from '../../redux/actions/phoneBook';
-// import PhoneBookFilter from '../PhoneBookFilter/PhoneBookFilter'
 
 export default function PhoneBookForm() {
   const formInitialState = {
@@ -22,8 +21,6 @@ export default function PhoneBookForm() {
   };
   const handleSubmit = e => {
     e.preventDefault();
-
-    // console.log(form);
 
     form.id = nanoid();
     dispatch(addItem(form));
@@ -73,7 +70,6 @@ export default function PhoneBookForm() {
         </div>
         <button type="submit">Add contact</button>
       </form>
-      {/* <PhoneBookFilter/> */}
     </div>
   );
 }

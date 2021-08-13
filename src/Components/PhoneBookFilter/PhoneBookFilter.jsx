@@ -3,29 +3,30 @@ import { filterItem } from '../../redux/actions/filter';
 
 function PhoneBookFilter() {
   const dispatch = useDispatch();
-  // const getContacts = state => state.contacts.items;
+  const contacts = useSelector(state => state.items);
+
   const getFilter = state => state.filter;
-  // const value = event.target.value;
+
   const value = useSelector(getFilter);
-
-  // export const getFilter = state => state.contacts.filter;
-
-  // const getContacts = state => state.filter;
-  //  const contacts = useSelector(getContacts);
-  // console.log(getFilter())
 
   const change = event => {
     const value = event.target.value;
     const getFilter = dispatch(filterItem(value));
-    console.log(getFilter.name);
+    console.log(getFilter);
 
-    // if (value === getFilter.payload) {
-    //   console.log(getFilter)
-    // }
-    // console.log("value" , value)
-    // console.log("getFilter" , getFilter.payload)
     return getFilter;
   };
+  function filterContacts(contacts) {
+    // return contacts.filter(obj => {
+    const x = contacts.map(contact => contact.name);
+    console.log(x);
+    // return contacts;
+    // if (value.toLowerCase().includes(x.toLowerCase().trim())) {
+    //   return 'ghhg';
+    // }
+    // });
+  }
+  console.log(contacts);
   return (
     <label>
       <p>Filter contacts by name: </p>

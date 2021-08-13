@@ -1,4 +1,3 @@
-// import PhoneBookForm from '../PhoneBookForm/PhoneBookForm'
 import { BsTrashFill } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { deleteItem } from '../../redux/actions/phoneBook';
@@ -7,7 +6,6 @@ const PhoneBook = ({ name, number, email, id, index }) => {
   const dispatch = useDispatch();
   const deleteContacts = () => {
     dispatch(deleteItem(id));
-    console.log('kkkkk', id);
   };
   return (
     <div>
