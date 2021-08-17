@@ -28,11 +28,6 @@ p {
   color: #bf1650;
 }
 
-/* p::before {
-  display: inline;
-  content: '⚠ ';
-} */
-
 input {
   display: block;
   box-sizing: border-box;
@@ -70,23 +65,6 @@ button {
 button:hover {
   background: #bf1650;
 }
-
-/* input[type='button']:active,
-button:active {
-  transition: 0.3s all;
-  transform: translateY(3px);
-  border: 1px solid transparent;
-  opacity: 0.8;
-} */
-
-/* input[type='button']:hover {
-  transition: 0.3s all;
-} */
-/* 
-input[type='button'],
-button {
-  -webkit-appearance: none;
-} */
 
 .App {
   max-width: 600px;

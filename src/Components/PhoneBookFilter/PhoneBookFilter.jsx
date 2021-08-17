@@ -1,5 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { filterItem } from '../../redux/actions/filter';
+import { filterItem } from '../../redux/actions/phoneBook';
+import filterContacts from '../../helpers/FilterContacts';
+// const contactsArray = filterContacts(contacts, value);
+//   console.log(contactsArray);
 
 function PhoneBookFilter() {
   const dispatch = useDispatch();
@@ -11,33 +14,40 @@ function PhoneBookFilter() {
 
   const change = event => {
     const value = event.target.value;
-    const getFilter = dispatch(filterItem(value));
-    console.log(getFilter);
 
-    return getFilter;
+    // console.log(value);
+    // console.log(filterContacts(contacts, value));
+    const contactsArray = filterContacts(contacts, value);
+    console.log(contactsArray);
+    dispatch(filterItem(value));
+    return contactsArray;
   };
-  function filterContacts(contacts) {
-    // return contacts.filter(obj => {
-    const x = contacts.map(contact => contact.name);
-    console.log(x);
-    // return contacts;
-    // if (value.toLowerCase().includes(x.toLowerCase().trim())) {
-    //   return 'ghhg';
-    // }
-    // });
-  }
-  console.log(contacts);
+  // const contactsArray = filterContacts(contacts, value);
+
+  // function filterContacts(contacts, value) {
+  //   console.log(value);
+  //   return contacts.filter(obj => {
+  //     return obj.name.toLowerCase().includes(value.toLowerCase().trim());
+  //   });
+  // }
+
   return (
-    <label>
-      <p>Filter contacts by name: </p>
-      <input
-        name="filter"
-        onChange={change}
-        type="text"
-        value={value}
-        placeholder="Name"
-      />
-    </label>
+    <div>
+      <label>
+        <p>Filter contacts by name: </p>
+        <input
+          name="filter"
+          onChange={change}
+          type="text"
+          value={value}
+          placeholder="Name"
+        />
+      </label>
+      {/* <ul>
+        <li>name</li>
+        <li>tel</li>
+      </ul> */}
+    </div>
   );
 }
 
