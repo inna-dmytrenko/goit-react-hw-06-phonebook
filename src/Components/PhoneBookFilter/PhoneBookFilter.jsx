@@ -10,18 +10,22 @@ function PhoneBookFilter() {
 
   const getFilter = state => state.filter;
 
+  // console.log(contacts);
   const value = useSelector(getFilter);
-
+  // console.log(value);
   const change = event => {
     const value = event.target.value;
 
     // console.log(value);
     // console.log(filterContacts(contacts, value));
+    dispatch(filterItem(value));
     const contactsArray = filterContacts(contacts, value);
     console.log(contactsArray);
-    dispatch(filterItem(value));
+    const contactsf = contactsArray;
+
     return contactsArray;
   };
+  // useSelector(contactsArray)
   // const contactsArray = filterContacts(contacts, value);
 
   // function filterContacts(contacts, value) {
