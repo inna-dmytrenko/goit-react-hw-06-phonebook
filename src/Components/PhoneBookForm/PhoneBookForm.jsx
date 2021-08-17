@@ -1,16 +1,23 @@
+import 'react-toastify/dist/ReactToastify.css';
+
+import { toast, ToastContainer } from 'react-toastify';
+
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
-import './PhoneBookForm.css';
+import './PhoneBookForm.styled.js';
 import { addItem } from '../../redux/actions/phoneBook';
-
+// import { addItem } from '../../redux/slices/phoneBook';
+import { useSelector } from 'react-redux';
+import { Form, Input, Label, Button, App } from './PhoneBookForm.styled';
 export default function PhoneBookForm() {
   const formInitialState = {
     name: '',
     number: '',
     email: '',
   };
-
+  const contacts = useSelector(state => state.items);
+  console.log(contacts);
   const [form, setForm] = useState(formInitialState);
   const dispatch = useDispatch();
   const inputHandler = e => {
@@ -22,17 +29,25 @@ export default function PhoneBookForm() {
   const handleSubmit = e => {
     e.preventDefault();
 
+    if (
+      contacts.some(el => el.name === name) ||
+      contacts.some(el => el.number === number) ||
+      contacts.some(el => el.email === email)
+    ) {
+      return toast(`${name} is already in contacts`);
+    }
+
     form.id = nanoid();
     dispatch(addItem(form));
     setForm(formInitialState);
   };
   const { name, number, email } = form;
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
+    <App>
+      <Form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="">Name</label>
-          <input
+          <Label htmlFor="">Name</Label>
+          <Input
             required
             placeholder="Search name"
             type="text"
@@ -45,8 +60,8 @@ export default function PhoneBookForm() {
         </div>
 
         <div>
-          <label htmlFor="">Number</label>
-          <input
+          <Label htmlFor="">Number</Label>
+          <Input
             type="tel"
             name="number"
             value={number}
@@ -59,8 +74,8 @@ export default function PhoneBookForm() {
         </div>
 
         <div>
-          <label htmlFor="">Email</label>
-          <input
+          <Label htmlFor="">Email</Label>
+          <Input
             placeholder="bluebill1049@hotmail.com"
             type="email"
             name="email"
@@ -68,8 +83,9 @@ export default function PhoneBookForm() {
             onChange={inputHandler}
           />
         </div>
-        <button type="submit">Add contact</button>
-      </form>
-    </div>
+        <Button type="submit">Add contact</Button>
+      </Form>
+      <ToastContainer />
+    </App>
   );
 }

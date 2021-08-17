@@ -11,7 +11,7 @@ export const deleteItem = id => ({
   payload: id,
 });
 
-export const filterItem = value => ({
-  type: FILTER_ITEM,
-  payload: value,
-});
+// export const filterItem = value => ({
+//   type: FILTER_ITEM,
+//   payload: value,
+// });

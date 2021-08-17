@@ -1,7 +1,8 @@
 import { BsTrashFill } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { deleteItem } from '../../redux/actions/phoneBook';
-import PhoneBookFilter from '../PhoneBookFilter/PhoneBookFilter';
+// import { deleteItem } from '../../redux/slices/phoneBook';
+import { Frame } from './PhoneBook.styled';
 
 const PhoneBook = ({ name, number, email, id, index }) => {
   const dispatch = useDispatch();
@@ -9,15 +10,14 @@ const PhoneBook = ({ name, number, email, id, index }) => {
     dispatch(deleteItem(id));
   };
   return (
-    <div>
+    <Frame>
       <p>{name}</p>
       <p>{number}</p>
       <p>{email}</p>
       <span onClick={deleteContacts}>
         <BsTrashFill />
       </span>
-      {/* <PhoneBookFilter /> */}
-    </div>
+    </Frame>
   );
 };
 export default PhoneBook;

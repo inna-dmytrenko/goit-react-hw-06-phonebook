@@ -1,17 +1,5 @@
 import styled from '@emotion/styled/macro';
 
-export const Container = styled.div`
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-`;
-export const Title = styled.h1`
-  font-weight: 100;
-  color: white;
-  text-align: center;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgb(2, 5, 12);
-`;
 export const Input = styled.input`
   display: block;
   box-sizing: border-box;
@@ -31,4 +19,8 @@ export const Label = styled.label`
   color: white;
   font-size: 14px;
   font-weight: 200;
+`;
+export const Para = styled.p`
+  color: #041f0d;
+  font-size: 24px;
 `;

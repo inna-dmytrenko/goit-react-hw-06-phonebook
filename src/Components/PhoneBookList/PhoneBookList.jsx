@@ -2,15 +2,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import PhoneBookForm from '../PhoneBookForm/PhoneBookForm';
 import PhoneBook from '../PhoneBook/PhoneBook';
 import PhoneBookFilter from '../PhoneBookFilter/PhoneBookFilter';
+import filterContacts from '../../helpers/FilterContacts';
+import { Container, Title } from './PhoneBookList.styled';
 
 const PhoneBookList = () => {
-  const contacts = useSelector(state => state.items);
-
+  const contactsFromRedux = useSelector(state => state.items);
+  console.log(contactsFromRedux);
+  const filterValue = useSelector(state => state.filter);
+  console.log(filterValue);
+  const contacts = filterContacts(contactsFromRedux, filterValue);
   return (
-    <div>
+    <Container>
       <PhoneBookForm />
-      <h1>List</h1>
-      {contacts.length > 1 && <PhoneBookFilter />}
+      <Title>List</Title>
+      {contacts && <PhoneBookFilter />}
       <ul>
         {contacts.length ? (
           contacts.map((contact, index) => (
@@ -22,7 +27,7 @@ const PhoneBookList = () => {
           <li>No contacts</li>
         )}
       </ul>
-    </div>
+    </Container>
   );
 };
 export default PhoneBookList;

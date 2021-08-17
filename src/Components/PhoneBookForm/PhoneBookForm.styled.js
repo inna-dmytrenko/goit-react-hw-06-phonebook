@@ -1,34 +1,11 @@
-body {
-  background: #0e101c;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-}
+import styled from '@emotion/styled/macro';
 
-form {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-h1 {
-  font-weight: 100;
-  color: white;
-  text-align: center;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgb(79, 98, 148);
-}
-
-.form {
-  background: #0e101c;
+export const Form = styled.form`
   max-width: 400px;
   margin: 0 auto;
-}
+`;
 
-p {
-  color: #bf1650;
-}
-
-input {
+export const Input = styled.input`
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -37,9 +14,8 @@ input {
   padding: 10px 15px;
   margin-bottom: 10px;
   font-size: 14px;
-}
-
-label {
+`;
+export const Label = styled.label`
   line-height: 2;
   text-align: left;
   display: block;
@@ -48,9 +24,8 @@ label {
   color: white;
   font-size: 14px;
   font-weight: 200;
-}
-
-button {
+`;
+export const Button = styled.button`
   background: #ec5990;
   color: white;
   text-transform: uppercase;
@@ -60,13 +35,13 @@ button {
   font-size: 16px;
   font-weight: 100;
   letter-spacing: 10px;
-}
+  margin-left: 18%;
 
-button:hover {
-  background: #bf1650;
-}
-
-.App {
+  &:hover {
+    background: #bf1650;
+  }
+`;
+export const App = styled.div`
   max-width: 600px;
   margin: 0 auto;
-}
+`;
