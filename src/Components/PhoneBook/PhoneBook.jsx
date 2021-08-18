@@ -1,10 +1,12 @@
 import { BsTrashFill } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
-import { deleteItem } from '../../redux/actions/phoneBook';
+// import { deleteItem } from '../../redux/actions/phoneBook';
 // import { deleteItem } from '../../redux/slices/phoneBook';
+import { deleteItem } from '../../redux/phoneBook/phoneBook-actions';
+
 import { Frame } from './PhoneBook.styled';
 
-const PhoneBook = ({ name, number, email, id, index }) => {
+const PhoneBook = ({ name, number, email, id }) => {
   const dispatch = useDispatch();
   const deleteContacts = () => {
     dispatch(deleteItem(id));

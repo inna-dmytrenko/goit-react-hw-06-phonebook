@@ -10,8 +10,3 @@ export const deleteItem = id => ({
   type: DELETE_ITEM,
   payload: id,
 });
-
-// export const filterItem = value => ({
-//   type: FILTER_ITEM,
-//   payload: value,
-// });

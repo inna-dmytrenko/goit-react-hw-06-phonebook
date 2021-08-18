@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { filterItem } from '../../redux/actions/filter';
-// import { filterItem } from '../../redux/slices/phoneBook';
+// import { filterItem } from '../../redux/actions/filter';
+// import { filterItem } from '../../redux/slices/filter';
+import { filterItem } from '../../redux/phoneBook/phoneBook-actions';
 import { Input, Label, Para } from './PhoneBookFilter.styled';
 
 function PhoneBookFilter() {

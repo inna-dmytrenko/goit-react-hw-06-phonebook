@@ -11,7 +11,6 @@ const itemsReducer = (state = initialState, action) => {
     case ADD_ITEM:
       return [...state, action.payload];
     case DELETE_ITEM:
-      // return action.payload;
       console.log(state);
       return state.filter(item => item.id !== action.payload);
     default:

@@ -1,5 +1,4 @@
 import { FILTER_ITEM } from '../types';
-import itemsReducer from './phoneBook';
 
 const initialState = '';
 const filterReducer = (state = initialState, action) => {

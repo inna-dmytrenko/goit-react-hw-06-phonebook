@@ -6,8 +6,9 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
 import './PhoneBookForm.styled.js';
-import { addItem } from '../../redux/actions/phoneBook';
+// import { addItem } from '../../redux/actions/phoneBook';
 // import { addItem } from '../../redux/slices/phoneBook';
+import { addItem } from '../../redux/phoneBook/phoneBook-actions.js';
 import { useSelector } from 'react-redux';
 import { Form, Input, Label, Button, App } from './PhoneBookForm.styled';
 export default function PhoneBookForm() {
@@ -17,7 +18,7 @@ export default function PhoneBookForm() {
     email: '',
   };
   const contacts = useSelector(state => state.items);
-  console.log(contacts);
+
   const [form, setForm] = useState(formInitialState);
   const dispatch = useDispatch();
   const inputHandler = e => {
